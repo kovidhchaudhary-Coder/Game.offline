@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #111827;
+  color: #f9fbff;
+}
+
+.wrap { padding: 16px; }
+.panel { border: 1px solid #3f4b70; border-radius: 12px; padding: 12px; background: #171f36; }
+.hidden { display: none; }
+.row { display: flex; gap: 8px; align-items: center; }
+.track { width: 160px; height: 24px; background: #2b3558; border-radius: 99px; position: relative; }
+.knob { width: 28px; height: 28px; border-radius: 999px; position: absolute; top: -2px; left: 0; background: #83b2ff; cursor: grab; }
+.btn { padding: 8px 12px; background: #2b73ff; border: 0; border-radius: 8px; color: white; cursor: pointer; }
+.small { color: #cfdaff; font-size: 13px; }

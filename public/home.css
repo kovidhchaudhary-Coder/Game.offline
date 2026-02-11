@@ -1,0 +1,60 @@
+:root {
+  font-family: Arial, sans-serif;
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background: #0b1020;
+  color: #f6f8ff;
+}
+
+.app {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  gap: 12px;
+  padding: 16px;
+}
+
+.title { margin: 0; }
+
+.icon-grid {
+  display: flex;
+  gap: 12px;
+}
+
+.game-icon {
+  width: 84px;
+  height: 84px;
+  border: 1px solid #4a5787;
+  border-radius: 12px;
+  background: #131b35;
+  color: inherit;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+#gameHost {
+  width: 100%;
+  min-height: 68vh;
+  border: 1px solid #3e4a74;
+  border-radius: 14px;
+  background: #050813;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(80, 150, 255, 0.3), rgba(2, 4, 8, 0.95));
+  opacity: 0;
+  transition: opacity 250ms ease;
+}
+
+.overlay.active { opacity: 1; }
+
+.footer-note {
+  font-size: 13px;
+  color: #bdc7ec;
+}
