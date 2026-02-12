@@ -6,8 +6,11 @@ import os
 ROOT = Path(__file__).resolve().parent
 PUBLIC = ROOT / 'public'
 HOST = '0.0.0.0'
+       codex/remove-logs-and-fix-graphics-issues-bwxlec
 PORT_ENV = 'KOVIDHE_PORT'
 DEFAULT_PORT = 5000
+PORT = 5000
+       main
 
 
 class Handler(SimpleHTTPRequestHandler):
@@ -44,6 +47,8 @@ if __name__ == '__main__':
     port = resolve_port()
     server = ReusableThreadingHTTPServer((HOST, port), Handler)
     print(f'Serving {PUBLIC} at http://localhost:{port} ({PORT_ENV})')
+    server = ReusableThreadingHTTPServer((HOST, PORT), Handler)
+    print(f'Serving {PUBLIC} at http://localhost:{PORT}')
     try:
         server.serve_forever()
     except KeyboardInterrupt:
