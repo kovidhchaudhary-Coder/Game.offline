@@ -10,6 +10,7 @@ python server.py
 
 Open `http://localhost:5000`.
 
+ codex/remove-logs-and-fix-graphics-issues-b43gx5
 ## Port
 
 - **Port name:** `KOVIDHE_PORT`
@@ -20,6 +21,8 @@ Open `http://localhost:5000`.
 KOVIDHE_PORT=5050 python server.py
 ```
 
+
+ main
 ## Structure
 
 - `public/index.html` launcher shell
