@@ -1,0 +1,13 @@
+body { margin: 0; font-family: Arial, sans-serif; background: #0f172a; color: #f3f7ff; }
+.wrap { padding: 16px; }
+.panel { border: 1px solid #3d4b77; border-radius: 12px; padding: 12px; background: #17203d; }
+.hidden { display: none; }
+.row { display: flex; gap: 8px; align-items: center; margin: 8px 0; }
+.track { width: 160px; height: 24px; border-radius: 99px; position: relative; background: #2b3558; }
+.knob { width: 28px; height: 28px; border-radius: 999px; position: absolute; top: -2px; left: 0; background: #9ac3ff; cursor: grab; }
+.btn { border: 0; border-radius: 8px; padding: 8px 12px; cursor: pointer; background: #2f74ff; color: #fff; }
+.grid { margin-top: 8px; display: grid; grid-template-columns: repeat(8, 24px); gap: 4px; }
+.cell { width: 24px; height: 24px; border-radius: 4px; background: #243256; text-align: center; line-height: 24px; font-size: 12px; }
+.hit { background: #b62740; }
+.miss { background: #42546f; }
+.small { font-size: 13px; color: #c9d4ff; }

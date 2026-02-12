@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neo Rush</title>
+    <link rel="stylesheet" href="./game.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <section id="menu" class="panel">
+        <h2>Neo Rush - Main Menu</h2>
+        <p class="small">Use slider to choose 1P/2P. Outfits are shared globally.</p>
+        <div class="row">
+          <span>1P</span>
+          <div id="playerTrack" class="track"><div id="playerKnob" class="knob"></div></div>
+          <span>2P</span>
+        </div>
+        <p id="playerCountLabel">Players: 1</p>
+        <button id="startBtn" class="btn">Start</button>
+      </section>
+
+      <section id="running" class="panel hidden">
+        <h2>Game Running</h2>
+        <p id="runtimeLabel">Timer: 10</p>
+      </section>
+
+      <section id="result" class="panel hidden">
+        <h2>Result</h2>
+        <p id="resultText">Done</p>
+        <button id="backBtn" class="btn">Back to Menu</button>
+      </section>
+    </div>
+
+    <script src="../../shared/ui.js"></script>
+    <script src="./game.js"></script>
+  </body>
+</html>
