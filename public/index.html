@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kovidhe Offline Arcade</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar">
+        <h1>Kovidhe Arcade</h1>
+        <div id="wallet-view" aria-live="polite"></div>
+      </header>
+
+      <main id="launcher" class="scene active">
+        <section class="player-assign card">
+          <h2>Players</h2>
+          <label for="player-slider">Drag slider to choose 1P / 2P</label>
+          <input id="player-slider" type="range" min="0" max="100" value="0" />
+          <p id="player-mode">1 Player</p>
+          <div class="assign-row">
+            <div draggable="true" class="token" data-token="keyboard">🎮 Keyboard</div>
+            <div class="slot" data-slot="P1">P1</div>
+            <div class="slot" data-slot="P2">P2</div>
+          </div>
+        </section>
+
+        <section class="apps card">
+          <h2>Apps</h2>
+          <div class="icon-grid">
+            <button class="app-icon" data-app="neo_rush">NEO Rush</button>
+            <button class="app-icon" data-app="battleship">Battleship</button>
+            <button class="app-icon" data-app="shop">Shop</button>
+            <button class="app-icon" data-app="settings">Settings</button>
+          </div>
+        </section>
+      </main>
+
+      <section id="game-scene" class="scene">
+        <div id="game-toolbar">
+          <button id="back-launcher">Back to Launcher</button>
+          <button id="pause-btn">Pause</button>
+        </div>
+        <div id="game-root"></div>
+      </section>
+    </div>
+
+    <div id="loading-screen" class="loading-screen hidden" aria-hidden="true">
+      <div class="loading-card">
+        <div class="loading-spinner" aria-hidden="true"></div>
+        <h2 id="loading-title">Preparing experience…</h2>
+        <p id="loading-subtitle">Please wait while we lock things in.</p>
+      </div>
+    </div>
+    <div id="overlay" class="overlay hidden" aria-hidden="true"></div>
+    <script type="module" src="/js/app.js"></script>
+  </body>
+</html>
