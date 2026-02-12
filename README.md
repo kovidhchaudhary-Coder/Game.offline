@@ -10,6 +10,19 @@ python server.py
 
 Open `http://localhost:5000`.
 
+         codex/remove-logs-and-fix-graphics-issues-bwxlec
+## Port
+
+- **Port name:** `KOVIDHE_PORT`
+- **Default value:** `5000`
+- **Valid range:** `1..65535`
+- If invalid/non-numeric, server prints a warning and falls back to `5000`.
+- Example:
+
+```bash
+KOVIDHE_PORT=5050 python server.py
+```
+         main
 ## Structure
 
 - `public/index.html` launcher shell
