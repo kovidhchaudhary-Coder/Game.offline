@@ -3,58 +3,53 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kovidhe Offline Arcade</title>
+    <title>Kovidhe Sovereign Terminal</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body>
-    <div id="app">
-      <header class="topbar">
-        <h1>Kovidhe Arcade</h1>
-        <div id="wallet-view" aria-live="polite"></div>
-      </header>
+    <div class="crt-overlay" aria-hidden="true"></div>
+    <header class="topbar panel">
+      <h1>KOVIDHE // OMEGA TERMINAL</h1>
+      <div>STEP <span id="dt-status">1/60</span> | PHASE <span id="difficulty-status">1</span></div>
+    </header>
 
-      <main id="launcher" class="scene active">
-        <section class="player-assign card">
-          <h2>Players</h2>
-          <label for="player-slider">Drag slider to choose 1P / 2P</label>
-          <input id="player-slider" type="range" min="0" max="100" value="0" />
-          <p id="player-mode">1 Player</p>
-          <div class="assign-row">
-            <div draggable="true" class="token" data-token="keyboard">🎮 Keyboard</div>
-            <div class="slot" data-slot="P1">P1</div>
-            <div class="slot" data-slot="P2">P2</div>
-          </div>
-        </section>
-
-        <section class="apps card">
-          <h2>Apps</h2>
-          <div class="icon-grid">
-            <button class="app-icon" data-app="neo_rush">NEO Rush</button>
-            <button class="app-icon" data-app="battleship">Battleship</button>
-            <button class="app-icon" data-app="shop">Shop</button>
-            <button class="app-icon" data-app="settings">Settings</button>
-          </div>
-        </section>
-      </main>
-
-      <section id="game-scene" class="scene">
-        <div id="game-toolbar">
-          <button id="back-launcher">Back to Launcher</button>
-          <button id="pause-btn">Pause</button>
-        </div>
-        <div id="game-root"></div>
+    <main class="spec-grid">
+      <section class="panel">
+        <h2>Fleet Console</h2>
+        <label for="vehicle-select">Vehicle</label>
+        <select id="vehicle-select"></select>
+        <div id="fleet-stats" class="fleet-stats"></div>
+        <h3>Zig-Zag Matrix</h3>
+        <div id="chassis-grid" class="chassis-grid"></div>
+        <button id="shift-up" class="btn">Shift +</button>
+        <button id="shift-down" class="btn">Shift -</button>
       </section>
-    </div>
 
-    <div id="loading-screen" class="loading-screen hidden" aria-hidden="true" role="status" aria-live="polite">
-      <div class="loading-card">
-        <div class="loading-spinner" aria-hidden="true"></div>
-        <h2 id="loading-title">Preparing experience…</h2>
-        <p id="loading-subtitle">Please wait while we lock things in.</p>
-      </div>
-    </div>
-    <div id="overlay" class="overlay hidden" aria-hidden="true"></div>
+      <section class="panel">
+        <h2>3D World</h2>
+        <canvas id="world-canvas" width="1100" height="580"></canvas>
+      </section>
+
+      <section class="panel">
+        <h2>Telemetry</h2>
+        <div class="gauges">
+          <div class="gauge"><div class="dial"><span id="rpm-readout">0 RPM</span></div><label>Tachometer</label></div>
+          <div class="gauge"><div class="dial"><span id="g-readout">0.00 g</span></div><label>G-Force</label></div>
+        </div>
+        <div class="warning-strip">
+          <span id="warn-redline">REDLINE</span><span id="warn-stall">STALL</span><span id="warn-abs">ABS</span>
+        </div>
+        <h3>Map / A*</h3>
+        <canvas id="city-map" width="260" height="260"></canvas>
+        <pre id="path-status" class="path-status">A*: standby</pre>
+        <h3>Sonic Wave</h3>
+        <div id="sonic-wave" class="sonic-wave"></div>
+        <button id="save-btn" class="btn">Save Snapshot</button>
+        <div id="save-status" class="hint"></div>
+      </section>
+    </main>
+
     <script type="module" src="/js/app.js"></script>
   </body>
 </html>

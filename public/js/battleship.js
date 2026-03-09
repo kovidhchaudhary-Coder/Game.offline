@@ -109,7 +109,12 @@ export async function start({ root, config, hooks }) {
   const ships = new Set(['1,1', '1,2', '1,3', '4,5', '5,5']);
   const sunkTrack = new Set();
 
-  root.innerHTML = `<div class="card"><h3>Battleship (${mode})</h3><div id="bs-log" style="height:220px;overflow:auto;white-space:pre-line"></div>
+  root.innerHTML = `<div class="card"><h3>Battleship (${mode})</h3>
+    <div class="probe-box">
+      <button id="probe-cell" class="probe-cell" aria-label="Probe square">Probe</button>
+      <span id="probe-status">Awaiting probe…</span>
+    </div>
+    <div id="bs-log" style="height:220px;overflow:auto;white-space:pre-line"></div>
     <div style="margin-top:8px"><button id="bs-shot" class="primary">AI Shot</button> <button id="bs-end" class="secondary">End Match</button></div></div>`;
 
   const log = document.getElementById('bs-log');
@@ -135,6 +140,30 @@ export async function start({ root, config, hooks }) {
       sunkShips += 1;
       append('Ship sunk.');
       hooks.earn?.(50);
+    }
+  };
+
+  document.getElementById('probe-cell').onclick = async () => {
+    const cell = document.getElementById('probe-cell');
+    const status = document.getElementById('probe-status');
+    status.textContent = 'Sending Ping…';
+    try {
+      const res = await fetch('/probe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: 'Ping' })
+      });
+      const json = await res.json();
+      const ok = json.reply === 'Pong';
+      cell.classList.toggle('ok', ok);
+      cell.classList.toggle('fail', !ok);
+      status.textContent = ok ? 'Pong received ✅' : 'Unexpected reply';
+      append(`Probe: ${json.reply || 'no reply'}`);
+    } catch (err) {
+      cell.classList.remove('ok');
+      cell.classList.add('fail');
+      status.textContent = 'Probe failed';
+      append('Probe failed');
     }
   };
 

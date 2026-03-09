@@ -10,7 +10,6 @@ python server.py
 
 Open `http://localhost:5000`.
 
-         codex/remove-logs-and-fix-graphics-issues-bwxlec
 ## Port
 
 - **Port name:** `KOVIDHE_PORT`
@@ -22,16 +21,22 @@ Open `http://localhost:5000`.
 ```bash
 KOVIDHE_PORT=5050 python server.py
 ```
-         main
+
+## API hooks
+
+- `POST /probe` accepts `{"message":"Ping"}` and returns a `Pong` handshake payload.
+- `POST /ai-move` accepts `difficulty` (`EZ`, `MEDIUM`, `HARD`) with optional prior `shots` and `hits`, then returns the next AI coordinate.
+
 ## Structure
 
 - `public/index.html` launcher shell
 - `public/css/styles.css` unified styling
 - `public/js/app.js` shared wallet/outfit/settings/loader/shop/loading lifecycle
 - `public/js/neo_rush.js` runner module (`start/stop`)
-- `public/js/battleship.js` battleship module (`start/stop`, AI helpers)
+- `public/js/battleship.js` battleship module (`start/stop`, AI helpers, probe square)
 - `public/shared/currency.js` shared save helpers
-- `server.py` static server + network protocol notes
+- `assets/` local offline media files (`.wav`, `.svg`) for packaging
+- `server.py` Flask server + API hooks + static serving
 
 ## Save format
 
@@ -43,6 +48,5 @@ KOVIDHE_PORT=5050 python server.py
 
 ## Notes
 
-- App includes a soothing loading overlay before game module lock-in.
+- App includes a loading overlay before game module lock-in.
 - Launcher and persistent profile follow a modular offline experience model.
-
